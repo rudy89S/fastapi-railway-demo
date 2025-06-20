@@ -14,7 +14,7 @@ def root():
 @app.on_event("startup")
 def connect_db():
     try:
-        conn = psycopg2.connect(os.getenv("DATABASE_URL"))
+        conn = psycopg2.connect(os.getenv("DATABASE_PUBLIC_URL"))
         cursor = conn.cursor()
         cursor.execute("SELECT current_database();")
         db = cursor.fetchone()
